@@ -26,7 +26,7 @@ class App extends Component {
     return (
       this.state.showPopup
         ? <Popup>
-            <span className={this.props.clasName || 'title'}>Hey from Popup</span>
+            <span className={this.props.className || 'title'}>Hey from Popup</span>
             <button onClick={this.handleHide}>Hide</button>
           </Popup>
         : null
