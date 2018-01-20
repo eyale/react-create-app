@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import Popup from './Popup'
 import { connect } from 'react-redux'
 
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import FlatButton from 'material-ui/FlatButton';
+import Avatar from 'material-ui/Avatar';
+import {indigo900, indigo500} from 'material-ui/styles/colors';
+
 import logo from '../assets/logo.svg'
 
 class App extends Component {
@@ -32,16 +39,30 @@ class App extends Component {
         : null
     )
   }
+  handleClick() {
+    alert('onClick triggered on the title component');
+  }
+  
+  styles = {
+    title: {
+      cursor: 'pointer',
+    },
+  };
 
   render() {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
+      <AppBar
+        onTitleClick={this.handleClick}
+        iconElementLeft={
+          <span style={{color: 'white'}}>
+            <Avatar backgroundColor={indigo500}>JS</Avatar>
+            <span style={{ paddingLeft: '10px'}}>John Snow</span>
+          </span>}
+        iconElementRight={<FlatButton label="Save" />}
+      />
+          <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <button onClick={this.handleShow}>Show Popup</button>
