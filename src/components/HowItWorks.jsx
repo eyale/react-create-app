@@ -28,7 +28,7 @@ class HowItWorks extends Component {
         this.setState({expanded3: !this.state.expanded3});
         break;
       case 'card4':
-        this.setState({expanded3: !this.state.expanded4});
+        this.setState({expanded4: !this.state.expanded4});
         break;
       default:
       break
@@ -39,7 +39,9 @@ class HowItWorks extends Component {
     return (
       <div className="how-it-works grid">
         <h1>Ameen Merchant App</h1>
-        <Card expanded={this.state.expanded1} onExpandChange={() => this.handleExpandChange('card1')}>
+        <Card
+          expanded={this.state.expanded1}
+          onExpandChange={() => this.handleExpandChange('card1')}>
           <CardHeader
             title="How to Setup"
             avatar={<Avatar backgroundColor={indigo500} icon={<FontIcon className="material-icons">assignment</FontIcon>} />}
@@ -61,31 +63,40 @@ class HowItWorks extends Component {
           </CardText>
         </Card>
 
-        <Card style={{marginTop: '10px'}} expanded={this.state.expanded2} onExpandChange={() => this.handleExpandChange('card2')}>
+        <Card 
+          style={{marginTop: '10px'}}
+          expanded={this.state.expanded2}
+          onExpandChange={() => this.handleExpandChange('card2')}>
           <CardHeader
             title="How to Run the App"
             avatar={<Avatar backgroundColor={lightBlue500} icon={<FontIcon className="material-icons">help</FontIcon>} />}
             actAsExpander={true}
             showExpandableButton={true}
           />
-          <CardText style={{marginLeft: '50px'}}>
+          <CardText expandable={true} style={{marginLeft: '50px'}}>
             <code>npm start</code>
           </CardText>
         </Card>
         
-        <Card style={{marginTop: '10px'}} expanded={this.state.expanded3} onExpandChange={() => this.handleExpandChange('card3')}>
+        <Card 
+          style={{marginTop: '10px'}}
+          expanded={this.state.expanded3}
+          onExpandChange={() => this.handleExpandChange('card3')}>
           <CardHeader
             title="Standart Compliant"
             avatar={<Avatar backgroundColor={green600} icon={<FontIcon className="material-icons">flag</FontIcon>} />}
             actAsExpander={true}
             showExpandableButton={true}
           />
-          <CardText style={{marginLeft: '50px'}}>
+          <CardText expandable={true} style={{marginLeft: '50px'}}>
             <code>npm run build</code>
           </CardText>
         </Card>
         
-        <Card style={{marginTop: '10px'}} expanded={this.state.expanded3} onExpandChange={() => this.handleExpandChange('card3')}>
+        <Card
+          style={{marginTop: '10px'}}
+          expanded={this.state.expanded4}
+          onExpandChange={() => this.handleExpandChange('card4')}>
           <CardHeader
             title="Secrets"
             avatar={<Avatar backgroundColor={yellow700} icon={<FontIcon className="material-icons">visibility</FontIcon>} />}
