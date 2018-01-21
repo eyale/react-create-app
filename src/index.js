@@ -39,8 +39,8 @@ ReactDOM.render(
         <AppBar
           iconElementLeft={
             <span style={{color: 'white'}}>
-              <Avatar backgroundColor={indigo500}>JS</Avatar>
-              <span style={{ paddingLeft: '10px'}}>John Snow</span>
+              <Avatar backgroundColor={indigo500}>AH</Avatar>
+              <span style={{ paddingLeft: '10px'}}>Anton Honcharov</span>
             </span>}
           iconElementRight={
             <List className="nav" style={{display:'inline-flex'}}>

@@ -68,10 +68,8 @@ class HowItWorks extends Component {
             actAsExpander={true}
             showExpandableButton={true}
           />
-          <CardText expandable={true}>
-            <List style={{marginLeft: '50px'}}>
-              <ListItem primaryText="npm run start" />
-            </List>
+          <CardText style={{marginLeft: '50px'}}>
+            <code>npm start</code>
           </CardText>
         </Card>
         
@@ -82,10 +80,8 @@ class HowItWorks extends Component {
             actAsExpander={true}
             showExpandableButton={true}
           />
-          <CardText expandable={true}>
-            <List style={{marginLeft: '50px'}}>
-              <ListItem primaryText="npm run start" />
-            </List>
+          <CardText style={{marginLeft: '50px'}}>
+            <code>npm run build</code>
           </CardText>
         </Card>
         
@@ -98,7 +94,7 @@ class HowItWorks extends Component {
           />
           <CardText style={{marginLeft: '50px'}} expandable={true}>
             <p>
-              <a href="https://github.com/eyale/react-create-app">This project</a>
+              <a href="https://github.com/eyale/react-create-app">This project </a>
               uses react-native-config bla-bla-bla...
               <code>nav</code>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
