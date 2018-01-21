@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-import './Popup.scss'
+import '../styles/Popup.scss'
 
 class Popup extends Component {
   constructor(props) {
