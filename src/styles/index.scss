@@ -1,45 +1,55 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 body {
   margin: 0;
   padding: 0;
-	font-family: sans-serif;
-	background: #fafbfc; 
+  font-family: sans-serif;
+  background: #262d2b;
+  color: #ffffff;
 }
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 code {
-	background: #f2f2f2;
-	padding:1px 4px;
-	border-radius: 4px;
+  background: #f2f2f2;
+  padding: 1px 4px;
+  border-radius: 4px;
 
-	&.block {
-		padding: 20px;
-		margin: 10px 0;
-		display: block;
-	}
+  &.block {
+    padding: 20px;
+    margin: 10px 0;
+    display: block;
+  }
 }
 p {
-	font-family: 'Roboto', sans-serif;
-	line-height: 20px;
-	font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  line-height: 20px;
+  font-size: 14px;
 }
 .nav {
-	a {
-		color: #fff;
-
-	}
+  a {
+    color: #fff;
+  }
 }
 .App {
   text-align: center;
 
-	&-intro {
-	  font-size: large;
-	}
+  &-intro {
+    font-size: large;
+  }
 }
 
 .grid {
-	width: 992px;
-	margin: 50px auto;
+  width: 992px;
+  margin: 50px auto;
+}
+
+.calendar {
+  input[type="text"] {
+    color: #ffffff !important;
+  }
+  code {
+    color: #000000;
+    font-weight: 900;
+  }
 }

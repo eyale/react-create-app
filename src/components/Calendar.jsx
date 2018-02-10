@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import DatePicker from 'material-ui/DatePicker';
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import DatePicker from "material-ui/DatePicker";
 
 class Calendar extends Component {
-  
   constructor(props) {
     super(props);
 
@@ -13,28 +12,28 @@ class Calendar extends Component {
       diff: 0
     };
   }
-  
-    handleChange1 = (e,date) => {
-      this.setState({
-        firstDate: date,
-      });
-    };
-  
-    handleChange2 = (e,date) => {
-      this.setState({
-        secondDate: date,
-      });
-    };
 
-    compareDates = (stateDate1, stateDate2) => {
-      var date1 = new Date(stateDate1);
-      var date2 = new Date(stateDate2);
-      var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+  handleChange1 = (e, date) => {
+    this.setState({
+      firstDate: date
+    });
+  };
 
-      return diffDays
-    }
-  
+  handleChange2 = (e, date) => {
+    this.setState({
+      secondDate: date
+    });
+  };
+
+  compareDates = (stateDate1, stateDate2) => {
+    var date1 = new Date(stateDate1);
+    var date2 = new Date(stateDate2);
+    var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+    return diffDays;
+  };
+
   render() {
     return (
       <div className="calendar grid">
@@ -54,13 +53,15 @@ class Calendar extends Component {
         <p>
           Difference between two dates is:
           <span>&nbsp;</span>
-          <code>{this.compareDates(this.state.firstDate, this.state.secondDate)}</code>
+          <code>
+            {this.compareDates(this.state.firstDate, this.state.secondDate)}
+          </code>
           <span>&nbsp;</span>
-          day {this.state.diff>1 ? `'s` : ''}
+          day {this.state.diff > 1 ? `'s` : ""}
         </p>
       </div>
     );
   }
 }
 
-export default connect(null, {})(Calendar)
+export default connect(null, {})(Calendar);
