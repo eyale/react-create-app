@@ -1,9 +1,13 @@
 import {applyMiddleware, compose, createStore as createReduxStore} from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
 import makeRootReducer from './rootReducer';
 
+import {watcherSaga} from './sagas';
+const sagaMiddleware = createSagaMiddleware();
+
 const createStore = (initialState = {}) => {
-  const middleware = [thunk];
+  const middleware = [sagaMiddleware];
   const enhancers = [];
   let composeEnhancers = compose;
 
@@ -16,6 +20,7 @@ const createStore = (initialState = {}) => {
     initialState,
     composeEnhancers(applyMiddleware(...middleware), ...enhancers)
   );
+  sagaMiddleware.run(watcherSaga);
   store.asyncReducers = {};
 
   return store;
