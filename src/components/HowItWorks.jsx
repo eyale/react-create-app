@@ -1,15 +1,15 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {Card, CardHeader, CardText} from "material-ui/Card";
-import FontIcon from "material-ui/FontIcon";
-import Avatar from "material-ui/Avatar";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
+import FontIcon from 'material-ui/FontIcon';
+import Avatar from 'material-ui/Avatar';
 import {
   indigo500,
   lightBlue500,
   green600,
   yellow700
-} from "material-ui/styles/colors";
-import {List, ListItem} from "material-ui/List";
+} from 'material-ui/styles/colors';
+import {List, ListItem} from 'material-ui/List';
 
 class HowItWorks extends Component {
   constructor(props) {
@@ -23,16 +23,16 @@ class HowItWorks extends Component {
   }
   handleExpandChange = cardNumber => {
     switch (cardNumber) {
-      case "card1":
+      case 'card1':
         this.setState({expanded1: !this.state.expanded1});
         break;
-      case "card2":
+      case 'card2':
         this.setState({expanded2: !this.state.expanded2});
         break;
-      case "card3":
+      case 'card3':
         this.setState({expanded3: !this.state.expanded3});
         break;
-      case "card4":
+      case 'card4':
         this.setState({expanded4: !this.state.expanded4});
         break;
       default:
@@ -46,7 +46,7 @@ class HowItWorks extends Component {
         <h1>Ameen Merchant App</h1>
         <Card
           expanded={this.state.expanded1}
-          onExpandChange={() => this.handleExpandChange("card1")}
+          onExpandChange={() => this.handleExpandChange('card1')}
         >
           <CardHeader
             title="How to Setup"
@@ -62,7 +62,7 @@ class HowItWorks extends Component {
             showExpandableButton={true}
           />
           <CardText expandable={true}>
-            <List style={{marginLeft: "50px"}}>
+            <List style={{marginLeft: '50px'}}>
               <ListItem
                 primaryText="Step 1:"
                 secondaryText="git clone this repo"
@@ -80,9 +80,9 @@ class HowItWorks extends Component {
         </Card>
 
         <Card
-          style={{marginTop: "10px"}}
+          style={{marginTop: '10px'}}
           expanded={this.state.expanded2}
-          onExpandChange={() => this.handleExpandChange("card2")}
+          onExpandChange={() => this.handleExpandChange('card2')}
         >
           <CardHeader
             title="How to Run the App"
@@ -95,15 +95,15 @@ class HowItWorks extends Component {
             actAsExpander={true}
             showExpandableButton={true}
           />
-          <CardText expandable={true} style={{marginLeft: "50px"}}>
+          <CardText expandable={true} style={{marginLeft: '50px'}}>
             <code>npm start</code>
           </CardText>
         </Card>
 
         <Card
-          style={{marginTop: "10px"}}
+          style={{marginTop: '10px'}}
           expanded={this.state.expanded3}
-          onExpandChange={() => this.handleExpandChange("card3")}
+          onExpandChange={() => this.handleExpandChange('card3')}
         >
           <CardHeader
             title="Standart Compliant"
@@ -116,15 +116,15 @@ class HowItWorks extends Component {
             actAsExpander={true}
             showExpandableButton={true}
           />
-          <CardText expandable={true} style={{marginLeft: "50px"}}>
+          <CardText expandable={true} style={{marginLeft: '50px'}}>
             <code>npm run build</code>
           </CardText>
         </Card>
 
         <Card
-          style={{marginTop: "10px"}}
+          style={{marginTop: '10px'}}
           expanded={this.state.expanded4}
-          onExpandChange={() => this.handleExpandChange("card4")}
+          onExpandChange={() => this.handleExpandChange('card4')}
         >
           <CardHeader
             title="Secrets"
@@ -139,10 +139,10 @@ class HowItWorks extends Component {
             actAsExpander={true}
             showExpandableButton={true}
           />
-          <CardText style={{marginLeft: "50px"}} expandable={true}>
+          <CardText style={{marginLeft: '50px'}} expandable={true}>
             <p>
               <a href="https://github.com/eyale/react-create-app">
-                This project{" "}
+                This project{' '}
               </a>
               uses react-native-config bla-bla-bla...
               <code>nav</code>

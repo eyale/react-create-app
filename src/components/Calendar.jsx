@@ -1,6 +1,6 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import DatePicker from "material-ui/DatePicker";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import DatePicker from 'material-ui/DatePicker';
 
 class Calendar extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ class Calendar extends Component {
             {this.compareDates(this.state.firstDate, this.state.secondDate)}
           </code>
           <span>&nbsp;</span>
-          day {this.state.diff > 1 ? `'s` : ""}
+          day {this.state.diff > 1 ? `'s` : ''}
         </p>
       </div>
     );

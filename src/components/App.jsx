@@ -1,8 +1,8 @@
-import React, {Component} from "react";
-import Popup from "./Popup";
-import {connect} from "react-redux";
+import React, {Component} from 'react';
+import Popup from './Popup';
+import {connect} from 'react-redux';
 
-import RaisedButton from "material-ui/RaisedButton";
+import RaisedButton from 'material-ui/RaisedButton';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class App extends Component {
   showPopup() {
     return this.state.showPopup ? (
       <Popup>
-        <p className={this.props.className || "title"}>Hey from Portal</p>
+        <p className={this.props.className || 'title'}>Hey from Portal</p>
         <RaisedButton
           onClick={this.handleHide}
           label="Hide Portal"

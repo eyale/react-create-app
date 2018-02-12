@@ -1,5 +1,5 @@
-import {combineReducers} from "redux";
-import inputReducer from "./modules/check";
+import {combineReducers} from 'redux';
+import inputReducer from './modules/check';
 // import { reducer as formReducer } from 'redux-form'
 
 export const makeRootReducer = asyncReducers => {

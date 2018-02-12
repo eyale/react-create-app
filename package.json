@@ -55,7 +55,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,json,scss,css,md}": [
+    "*.{js,jsx,json}": [
       "prettier --write --no-bracket-spacing false --print-width 80 --tab-width 2 --trailing-comma none --single-quote",
       "git add"
     ]
