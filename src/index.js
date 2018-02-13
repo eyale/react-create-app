@@ -12,6 +12,7 @@ import App from './components/App';
 import HowItWorks from './components/HowItWorks';
 import Calendar from './components/Calendar';
 import ContactUs from './components/ContactUs';
+import Dogs from './components/Dogs';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -74,6 +75,13 @@ ReactDOM.render(
                     </Link>
                   }
                 />
+                <ListItem
+                  children={
+                    <Link key={Math.random()} to="/dogs">
+                      Dogs
+                    </Link>
+                  }
+                />
               </List>
             }
           />
@@ -81,6 +89,7 @@ ReactDOM.render(
           <Route path="/how-it-works" component={HowItWorks} />
           <Route path="/calendar" component={Calendar} />
           <Route path="/contact-us" component={ContactUs} />
+          <Route path="/dogs" component={Dogs} />
         </div>
       </MuiThemeProvider>
     </Router>

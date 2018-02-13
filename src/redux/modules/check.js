@@ -5,12 +5,10 @@ export const inputOnChangeAction = e => ({
   payload: e.target.value
 });
 
-const inputReducer = (state = '', action) => {
+export const inputReducer = (state = '', action) => {
   if (action.type === ON_CHANGE) {
     return action.payload;
   }
 
   return state;
 };
-
-export default inputReducer;

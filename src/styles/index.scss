@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
   margin: 0;
@@ -22,7 +22,7 @@ code {
   }
 }
 p {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 20px;
   font-size: 14px;
 }
@@ -45,7 +45,7 @@ p {
 }
 
 .calendar {
-  input[type="text"] {
+  input[type='text'] {
     color: #ffffff !important;
   }
   code {

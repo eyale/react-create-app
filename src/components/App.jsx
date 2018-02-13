@@ -8,19 +8,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {showPopup: false};
-
-    this.handleShow = this.handleShow.bind(this);
-    this.handleHide = this.handleHide.bind(this);
   }
 
-  handleShow(e) {
+  handleShow = e => {
     e.preventDefault();
     this.setState({showPopup: true});
-  }
-  handleHide(e) {
+  };
+  handleHide = e => {
     e.preventDefault();
     this.setState({showPopup: false});
-  }
+  };
 
   showPopup() {
     return this.state.showPopup ? (

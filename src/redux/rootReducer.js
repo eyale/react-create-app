@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux';
-import inputReducer from './modules/check';
+import {inputReducer} from './modules/check';
+import {dogsReducer} from './modules/dogs';
 // import { reducer as formReducer } from 'redux-form'
 
 export const makeRootReducer = asyncReducers => {
   return combineReducers({
-    inputReducer: inputReducer
+    inputReducer,
+    dogsReducer
     // form: formReducer,
     // ...asyncReducers
   });
