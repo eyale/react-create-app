@@ -52,7 +52,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     // config: state.config,
     // menu: state.menu

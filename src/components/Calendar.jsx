@@ -29,9 +29,8 @@ class Calendar extends Component {
     var date1 = new Date(stateDate1);
     var date2 = new Date(stateDate2);
     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-    return diffDays;
+    return Math.ceil(timeDiff / (1000 * 3600 * 24));
   };
 
   render() {
