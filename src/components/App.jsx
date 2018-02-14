@@ -19,7 +19,7 @@ class App extends Component {
     this.setState({showPopup: false});
   };
 
-  showPopup() {
+  showPopup = () => {
     return this.state.showPopup ? (
       <Popup>
         <p className={this.props.className || 'title'}>Hey from Portal</p>
@@ -30,7 +30,7 @@ class App extends Component {
         />
       </Popup>
     ) : null;
-  }
+  };
 
   render() {
     return (

@@ -1,20 +1,33 @@
-const API_CALL_REQUEST = 'API_CALL_REQUEST';
-const API_CALL_SUCCESS = 'API_CALL_SUCCESS';
-const API_CALL_FAILURE = 'API_CALL_FAILURE';
+import {
+  API_DOGS_LIST_REQUEST,
+  API_DOGS_LIST_SUCCESS,
+  API_DOGS_RANDOM_REQUEST,
+  API_DOGS_RANDOM_SUCCESS,
+  API_DOGS_FAILURE,
+  API_DOGS_SELECT_BREED
+} from '../constants';
 
 const initialState = {
   fetching: false,
   dog: null,
-  error: null
+  error: null,
+  dogsList: [],
+  selectedBreed: 0
 };
 
 export const dogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case API_CALL_REQUEST:
+    case API_DOGS_LIST_REQUEST:
       return {...state, fetching: true, error: null};
-    case API_CALL_SUCCESS:
+    case API_DOGS_RANDOM_REQUEST:
+      return {...state, fetching: true, error: null};
+    case API_DOGS_LIST_SUCCESS:
+      return {...state, fetching: false, dogsList: action.dogsList};
+    case API_DOGS_RANDOM_SUCCESS:
       return {...state, fetching: false, dog: action.dog};
-    case API_CALL_FAILURE:
+    case API_DOGS_SELECT_BREED:
+      return {...state, selectedBreed: action.dog};
+    case API_DOGS_FAILURE:
       return {...state, fetching: false, dog: null, error: action.error};
     default:
       return state;

@@ -3,12 +3,38 @@ import {connect} from 'react-redux';
 import logo from '../assets/logo.svg';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
 class Dogs extends Component {
   style = {
     logo: {
       width: '200px',
       borderRadius: '3%'
     }
+  };
+
+  componentWillMount() {
+    this.props.dogsList.length === 0 && this.props.onListDogsRequest();
+  }
+
+  handleChange = (event, index, value) => {
+    this.props.onSelectBreed(value);
+  };
+
+  returnSelectItems = () => {
+    if (this.props.dogsList.length === 0) return null;
+    return (
+      <SelectField
+        floatingLabelText="Select Breed"
+        onChange={this.handleChange}
+        value={this.props.selectedBreed}
+      >
+        {this.props.dogsList.message.map((breed, idx) => {
+          return <MenuItem key={idx} value={idx} primaryText={breed} />;
+        })}
+      </SelectField>
+    );
   };
 
   render() {
@@ -39,21 +65,29 @@ class Dogs extends Component {
         )}
 
         {error && <p style={{color: 'red'}}>Uh oh - something went wrong!</p>}
+
+        <br />
+        {this.returnSelectItems()}
+        <img src={this.props.dogsList[this.props.selectedBreed]} alt="" />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({dogsReducer}) => {
   return {
-    fetching: state.dogsReducer.fetching,
-    dog: state.dogsReducer.dog,
-    error: state.dogsReducer.error
+    fetching: dogsReducer.fetching,
+    dog: dogsReducer.dog,
+    error: dogsReducer.error,
+    dogsList: dogsReducer.dogsList,
+    selectedBreed: dogsReducer.selectedBreed
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    onRequestDog: () => dispatch({type: 'API_CALL_REQUEST'})
+    onRequestDog: () => dispatch({type: 'API_DOGS_RANDOM_REQUEST'}),
+    onListDogsRequest: () => dispatch({type: 'API_DOGS_LIST_REQUEST'}),
+    onSelectBreed: dog => dispatch({type: 'API_DOGS_SELECT_BREED', dog})
   };
 };
 
