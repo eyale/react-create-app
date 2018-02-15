@@ -11,6 +11,13 @@ class Dogs extends Component {
     logo: {
       width: '200px',
       borderRadius: '3%'
+    },
+    breed: {
+      width: '500px',
+      display: 'block',
+      margin: '0 auto',
+      borderRadius: '3%',
+      boxShadow: 'rgba(0, 0, 0, 0.3) 0 5px 17px 0'
     }
   };
 
@@ -19,21 +26,32 @@ class Dogs extends Component {
   }
 
   handleChange = (event, index, value) => {
-    this.props.onSelectBreed(value);
+    const {onSelectBreed, dogsList} = this.props;
+    onSelectBreed(dogsList.filter((breed, idx) => idx === value)[0]);
   };
 
   returnSelectItems = () => {
-    if (this.props.dogsList.length === 0) return null;
+    const {dogsList, selectedBreed, selectedBreedImage} = this.props;
+    if (dogsList.length === 0) return null;
+
+    const breedsValue =
+      dogsList.indexOf(selectedBreed) === -1
+        ? 0
+        : dogsList.indexOf(selectedBreed);
+
     return (
-      <SelectField
-        floatingLabelText="Select Breed"
-        onChange={this.handleChange}
-        value={this.props.selectedBreed}
-      >
-        {this.props.dogsList.message.map((breed, idx) => {
-          return <MenuItem key={idx} value={idx} primaryText={breed} />;
-        })}
-      </SelectField>
+      <div>
+        <SelectField
+          floatingLabelText="Select Breed"
+          onChange={this.handleChange}
+          value={breedsValue}
+        >
+          {dogsList.map((breed, idx) => {
+            return <MenuItem key={idx} value={idx} primaryText={breed} />;
+          })}
+        </SelectField>
+        <img src={selectedBreedImage || logo} style={this.style.breed} alt="" />
+      </div>
     );
   };
 
@@ -41,7 +59,7 @@ class Dogs extends Component {
     const {fetching, dog, error, onRequestDog} = this.props;
 
     return (
-      <div className="App">
+      <div className="App grid">
         <header className="App-header">
           <img
             src={dog || logo}
@@ -51,24 +69,19 @@ class Dogs extends Component {
           />
           <h1 className="App-title">Welcome to Dog Saga</h1>
         </header>
-
         {dog ? (
           <p className="App-intro">Keep clicking for new dogs</p>
         ) : (
           <p className="App-intro">Replace the React icon with a dog!</p>
         )}
-
         {fetching ? (
           <RaisedButton label="Fetching..." />
         ) : (
           <RaisedButton onClick={onRequestDog} label="Request a Dog" />
         )}
-
         {error && <p style={{color: 'red'}}>Uh oh - something went wrong!</p>}
-
         <br />
         {this.returnSelectItems()}
-        <img src={this.props.dogsList[this.props.selectedBreed]} alt="" />
       </div>
     );
   }
@@ -79,8 +92,9 @@ const mapStateToProps = ({dogsReducer}) => {
     fetching: dogsReducer.fetching,
     dog: dogsReducer.dog,
     error: dogsReducer.error,
-    dogsList: dogsReducer.dogsList,
-    selectedBreed: dogsReducer.selectedBreed
+    dogsList: dogsReducer.dogsList.message || [],
+    selectedBreed: dogsReducer.selectedBreed,
+    selectedBreedImage: dogsReducer.selectedBreedImage
   };
 };
 const mapDispatchToProps = dispatch => {

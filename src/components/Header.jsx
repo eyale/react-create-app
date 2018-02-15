@@ -28,7 +28,6 @@ const history = createBrowserHistory();
 class Header extends Component {
   render() {
     const {isLightTheme, handleThemeChange} = this.props;
-
     const theme = isLightTheme ? 'Dark theme' : 'Light theme';
     const muiTheme = isLightTheme
       ? getMuiTheme({palette: {primary1Color: indigo900}})

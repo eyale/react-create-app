@@ -4,7 +4,8 @@ import {
   API_DOGS_RANDOM_REQUEST,
   API_DOGS_RANDOM_SUCCESS,
   API_DOGS_FAILURE,
-  API_DOGS_SELECT_BREED
+  API_DOGS_SELECT_BREED,
+  API_DOGS_SELECTED_BREED_FETCHED
 } from '../constants';
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
   dog: null,
   error: null,
   dogsList: [],
-  selectedBreed: 0
+  selectedBreed: '',
+  selectedBreedImage: ''
 };
 
 export const dogsReducer = (state = initialState, action) => {
@@ -27,6 +29,8 @@ export const dogsReducer = (state = initialState, action) => {
       return {...state, fetching: false, dog: action.dog};
     case API_DOGS_SELECT_BREED:
       return {...state, selectedBreed: action.dog};
+    case API_DOGS_SELECTED_BREED_FETCHED:
+      return {...state, selectedBreedImage: action.breedImageData};
     case API_DOGS_FAILURE:
       return {...state, fetching: false, dog: null, error: action.error};
     default:
